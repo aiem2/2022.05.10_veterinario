@@ -3,11 +3,12 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.eager_load(:pets)
   end
 
   # GET /clients/1 or /clients/1.json
   def show
+    @clients = Client.eager_load(:pets)
   end
 
   # GET /clients/new

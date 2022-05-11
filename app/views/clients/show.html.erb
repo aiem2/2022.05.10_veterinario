@@ -8,3 +8,26 @@
 <%= button_to "Eliminar este cliente", @client, method: :delete %>
 <br>
 <%= render @client %>
+<br>
+  <table class="table table-light table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre mascota</th>
+      <th scope="col">Fecha de nacimiento</th>
+      <th scope="col">Visitas a la veterinaria</th>
+      <th scope="col">Ficha médica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @client.pets.each do |pet|%>
+    <tr>
+        <td><%= pet.id %></td>
+        <td><%= pet.name %></td>
+        <td><%= pet.date_birth %></td>
+        <td><%= pet.visits %></td>
+        <td><%= link_to "Ficha", pet_path(pet)%></td>   
+    </tr>
+    <% end %>  
+  <tbody>
+</table>

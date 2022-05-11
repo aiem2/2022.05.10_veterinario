@@ -5,4 +5,8 @@ class Pet < ApplicationRecord
     def visits
         @visits = self.pethistories.count            
     end    
+
+    def owner
+        @owner = Client.find(self.client_id).name
+    end
 end
