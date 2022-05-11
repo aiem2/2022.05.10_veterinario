@@ -1,16 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Historial de pacientes</h1>
+<h1>Historial de consultas</h1>
+
 <%= link_to "Nuevo registro de historial", new_pethistory_path %>
+<br>
+<br>
 
-<div id="pethistories">
-  <% @pethistories.each do |pethistory| %>
-    <br>
-    <%= render pethistory %>
-    <p>
-      <%= link_to "Mostrar este registro de historial", pethistory %>
-    </p>
-  <% end %>
-</div>
-
-
+<table class="table table-light table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Dueño</th>
+      <th scope="col">Nombre mascota</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Diagnóstico</th>
+      <th scope="col">Ficha visita</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pethistories.each do |pethistory|%>
+    <tr>
+        <td><%= pethistory.id %></td>
+        <td><%= pethistory.created_at %></td>
+        <td><%= pethistory.owner %></td>
+        <td><%= pethistory.pet_name %></td>
+        <td><%= pethistory.weight %></td>
+        <td><%= pethistory.height %></td>
+        <td><%= pethistory.diagnostic %></td>
+        <td><%= link_to "Registro visita", pethistory_path(pethistory)%></td>   
+           
+    </tr>
+    <% end %>  
+  <tbody>
+</table>

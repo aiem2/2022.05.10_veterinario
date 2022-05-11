@@ -2,17 +2,34 @@
 
 <h1>Clientes</h1>
 <%= link_to "Nuevo cliente", new_client_path %>
+<br>
+<br>
 
 <div id="clients">
-  <% @clients.each do |client| %>
-    <br>
-    <%= render client %>
-    <strong>Pacientes: </strong><%= client.patients%>
-    <br>
-    <br>
-    <%= link_to "Mostrar este cliente", client %>
-    
-  <% end %>
+<table class="table table-light table-stripped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Mascotas</th>
+      <th scope="col">Ficha cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client|%>
+    <tr>
+        <td><%= client.id %></td>
+        <td><%= client.name %></td>
+        <td><%= client.mail %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.patients %></td>
+        <td><%= link_to "Ficha", client_path(client)%></td>   
+    </tr>
+    <% end %>  
+  <tbody>
+</table>
 </div>
 
 

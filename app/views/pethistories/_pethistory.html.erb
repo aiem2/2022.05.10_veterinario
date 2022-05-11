@@ -1,5 +1,19 @@
 <div id="<%= dom_id pethistory %>">
   <p>
+    <strong>Fecha:</strong>
+    <%= pethistory.created_at %>
+  </p>
+  
+  <p>
+    <strong>Dueño:</strong>
+    <%= pethistory.owner %>
+  </p>
+  
+  <p>
+    <strong>Nombre mascota:</strong>
+    <%= pethistory.pet_name %>
+  </p>
+  <p>
     <strong>Peso:</strong>
     <%= pethistory.weight %>
   </p>
@@ -15,3 +29,4 @@
   </p>
   
 </div>
+

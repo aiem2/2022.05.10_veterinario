@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @pet %>
-
 <div>
   <%= link_to "Editar paciente", edit_pet_path(@pet) %> |
   <%= link_to "Listado de pacientes", pets_path %>
@@ -9,3 +7,5 @@
 </div>
 <br>
 <%= button_to "Eliminar paciente", @pet, method: :delete %>
+<br>
+<%= render @pet %>
