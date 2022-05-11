@@ -3,8 +3,8 @@
 <%= render @pethistory %>
 
 <div>
-  <%= link_to "Edit this pethistory", edit_pethistory_path(@pethistory) %> |
-  <%= link_to "Back to pethistories", pethistories_path %>
-
-  <%= button_to "Destroy this pethistory", @pethistory, method: :delete %>
+  <%= link_to "Editar este historial", edit_pethistory_path(@pethistory) %> |
+  <%= link_to "Listado de historiales", pethistories_path %>
 </div>
+<br>
+<%= button_to "Eliminar este historial", @pethistory, method: :delete %>

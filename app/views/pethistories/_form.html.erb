@@ -1,7 +1,7 @@
 <%= form_with(model: pethistory) do |form| %>
   <% if pethistory.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(pethistory.errors.count, "error") %> prohibited this pethistory from being saved:</h2>
+      <h2><%= pluralize(pethistory.errors.count, "error") %> no permitieron el registro del historial:</h2>
 
       <ul>
         <% pethistory.errors.each do |error| %>
@@ -12,21 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :weight, style: "display: block" %>
+    <%= form.label :paciente, style: "display: block" %>
+    <%= form.select :pet_id, options_from_collection_for_select(@pets, :id, :name) %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :peso, style: "display: block" %>
     <%= form.text_field :weight %>
   </div>
-
+  <br>
   <div>
-    <%= form.label :height, style: "display: block" %>
+    <%= form.label :altura, style: "display: block" %>
     <%= form.text_field :height %>
   </div>
-
+  <br>
   <div>
-    <%= form.label :diagnostic, style: "display: block" %>
+    <%= form.label :diagnóstico, style: "display: block" %>
     <%= form.text_area :diagnostic %>
   </div>
-
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit value="Registrar historial" %>
   </div>
 <% end %>

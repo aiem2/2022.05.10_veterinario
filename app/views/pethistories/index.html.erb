@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pethistories</h1>
+<h1>Historial de pacientes</h1>
+<%= link_to "Nuevo registro de historial", new_pethistory_path %>
 
 <div id="pethistories">
   <% @pethistories.each do |pethistory| %>
+    <br>
     <%= render pethistory %>
     <p>
-      <%= link_to "Show this pethistory", pethistory %>
+      <%= link_to "Mostrar este registro de historial", pethistory %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New pethistory", new_pethistory_path %>
+

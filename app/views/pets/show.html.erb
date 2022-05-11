@@ -3,8 +3,9 @@
 <%= render @pet %>
 
 <div>
-  <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
-  <%= link_to "Back to pets", pets_path %>
-
-  <%= button_to "Destroy this pet", @pet, method: :delete %>
+  <%= link_to "Editar paciente", edit_pet_path(@pet) %> |
+  <%= link_to "Listado de pacientes", pets_path %>
+  
 </div>
+<br>
+<%= button_to "Eliminar paciente", @pet, method: :delete %>

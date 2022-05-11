@@ -1,7 +1,7 @@
 <%= form_with(model: client) do |form| %>
   <% if client.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+      <h2><%= pluralize(client.errors.count, "error") %> no permitieron registrar al cliente:</h2>
 
       <ul>
         <% client.errors.each do |error| %>
@@ -12,21 +12,21 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :nombre, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
+  <br>
   <div>
-    <%= form.label :phone, style: "display: block" %>
+    <%= form.label :teléfono, style: "display: block" %>
     <%= form.text_field :phone %>
   </div>
-
+  <br>
   <div>
     <%= form.label :mail, style: "display: block" %>
     <%= form.text_field :mail %>
   </div>
-
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit value ="Registrar cliente"%>
   </div>
 <% end %>

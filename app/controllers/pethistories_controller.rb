@@ -13,19 +13,22 @@ class PethistoriesController < ApplicationController
   # GET /pethistories/new
   def new
     @pethistory = Pethistory.new
+    @pets = Pet.all
   end
 
   # GET /pethistories/1/edit
   def edit
+    @pets = Pet.all
   end
 
   # POST /pethistories or /pethistories.json
   def create
     @pethistory = Pethistory.new(pethistory_params)
+    @pethistory.client_id = @pethistory.pet.client_id 
 
     respond_to do |format|
       if @pethistory.save
-        format.html { redirect_to pethistory_url(@pethistory), notice: "Pethistory was successfully created." }
+        format.html { redirect_to pethistory_url(@pethistory), notice: "Registro de historial creado con éxito." }
         format.json { render :show, status: :created, location: @pethistory }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,7 @@ class PethistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @pethistory.update(pethistory_params)
-        format.html { redirect_to pethistory_url(@pethistory), notice: "Pethistory was successfully updated." }
+        format.html { redirect_to pethistory_url(@pethistory), notice: "Registro de historial actualizado con éxito." }
         format.json { render :show, status: :ok, location: @pethistory }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +55,7 @@ class PethistoriesController < ApplicationController
     @pethistory.destroy
 
     respond_to do |format|
-      format.html { redirect_to pethistories_url, notice: "Pethistory was successfully destroyed." }
+      format.html { redirect_to pethistories_url, notice: "Registro de historial eliminado con éxito." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +68,6 @@ class PethistoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pethistory_params
-      params.require(:pethistory).permit(:weight, :height, :diagnostic)
+      params.require(:pethistory).permit(:weight, :height, :diagnostic, :pet_id, :client_id)
     end
 end

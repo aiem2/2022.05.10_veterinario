@@ -13,10 +13,12 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    @clients = Client.all
   end
 
   # GET /pets/1/edit
   def edit
+    @clients = Client.all
   end
 
   # POST /pets or /pets.json
@@ -25,7 +27,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully created." }
+        format.html { redirect_to pet_url(@pet), notice: "Paciente creado con éxito." }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to pet_url(@pet), notice: "Pet was successfully updated." }
+        format.html { redirect_to pet_url(@pet), notice: "Actualización del paciente exitosa." }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class PetsController < ApplicationController
     @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
+      format.html { redirect_to pets_url, notice: "Paciente eliminado con éxito." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,6 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:name, :race, :date_birth)
+      params.require(:pet).permit(:name, :race, :date_birth, :client_id)
     end
 end
