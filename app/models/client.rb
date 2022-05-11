@@ -1,3 +1,3 @@
 class Client < ApplicationRecord
-    has_many :pet, dependant: :destroy
+    has_many :pets, dependant: :destroy
 end
