@@ -7,7 +7,9 @@
   <% @pets.each do |pet| %>
   <br>
     <%= render pet %>
+    <strong> Visitas: </strong><%= pet.visits%>
     <p>
+    <br>
       <%= link_to "Mostrar paciente", pet %>
     </p>
   <% end %>
