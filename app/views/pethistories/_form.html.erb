@@ -1,0 +1,32 @@
+<%= form_with(model: pethistory) do |form| %>
+  <% if pethistory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pethistory.errors.count, "error") %> prohibited this pethistory from being saved:</h2>
+
+      <ul>
+        <% pethistory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :weight, style: "display: block" %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div>
+    <%= form.label :height, style: "display: block" %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div>
+    <%= form.label :diagnostic, style: "display: block" %>
+    <%= form.text_area :diagnostic %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

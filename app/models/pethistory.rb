@@ -1,0 +1,2 @@
+class Pethistory < ApplicationRecord
+end
