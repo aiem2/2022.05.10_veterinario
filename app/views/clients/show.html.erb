@@ -16,6 +16,8 @@
       <th scope="col">Nombre mascota</th>
       <th scope="col">Fecha de nacimiento</th>
       <th scope="col">Visitas a la veterinaria</th>
+      <th scope="col">Altura máxima</th>
+      <th scope="col">Peso máximo</th>
       <th scope="col">Ficha médica</th>
     </tr>
   </thead>
@@ -26,6 +28,8 @@
         <td><%= pet.name %></td>
         <td><%= pet.date_birth %></td>
         <td><%= pet.visits %></td>
+        <td><%= pet.weight_max %></td>
+        <td><%= pet.height_max%></td>
         <td><%= link_to "Ficha", pet_path(pet)%></td>   
     </tr>
     <% end %>  
